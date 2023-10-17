@@ -1,22 +1,23 @@
-function createEnemy(name, level, emoji, attackName) {
-    const enemy = {};
+function createHero(name, level, weapon) {
+    const hero = {};
 
-    enemy.name = name;
-    enemy.level = level;
-    enemy.emoji = emoji;
-    enemy.attackName = attackName;
+    hero.name = name;
+    hero.level = level;
+    hero.weapon = weapon;
 
-    enemy.attack = function() {
-        `${enemy.name} ${enemy.attackName} you!`;
+    hero.sayHello = function() {
+        return `Hello, my name is ${this.name}`;
     }
 
-    return enemy;
+    hero.attack = function() {
+        return `Attack with ${this.weapon}`;
+    }
+
+    return hero;
 }
 
-const enemies = [
-    createEnemy('Spider', 1, '🕷️', 'bites'),
-    createEnemy('Snake', 1, '🐍', 'bites'),
-    createEnemy('Bear', 1, '🐻', 'scratches'),
-];
+const hero1 = createHero('John', 1, 'sword');
+const hero2 = createHero('Bob', 2, 'knife');
 
-console.log(enemies);
+console.log(hero1.sayHello());
+console.log(hero2.sayHello());
